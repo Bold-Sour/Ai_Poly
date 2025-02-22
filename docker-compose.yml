@@ -1,0 +1,66 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:latest
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  gateway:
+    build: ./golang
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis:6379
+
+  python_service:
+    build: ./python
+    ports:
+      - "8084:8080"
+    volumes:
+      - ./python:/app
+    environment:
+      - MODEL_PATH=/app/models
+
+  r_service:
+    build: ./r_analytics
+    ports:
+      - "8081:8081"
+    volumes:
+      - ./r_analytics:/app
+
+  julia_service:
+    build: ./julia
+    ports:
+      - "8082:8082"
+    volumes:
+      - ./julia:/app
+
+  rust_service:
+    build: ./rust
+    ports:
+      - "8083:8083"
+
+  frontend:
+    build: ./javascript
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./javascript:/app
+      - /app/node_modules
+    environment:
+      - NODE_ENV=production
+      - GATEWAY_URL=http://gateway:8080
+    depends_on:
+      - gateway
+      - python_service
+      - r_service
+      - julia_service
+      - rust_service
+
+volumes:
+  redis_data: 

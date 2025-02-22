@@ -1,0 +1,31 @@
+{
+  "name": "ai-polyglot-frontend",
+  "version": "1.0.0",
+  "description": "Frontend for AI Polyglot System",
+  "main": "index.js",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "next": "^13.4.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "axios": "^1.4.0",
+    "chart.js": "^4.3.0",
+    "react-chartjs-2": "^5.2.0",
+    "@mui/material": "^5.13.0",
+    "@mui/icons-material": "^5.11.16",
+    "@emotion/react": "^11.11.0",
+    "@emotion/styled": "^11.11.0",
+    "typescript": "^5.0.4"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.0",
+    "@types/node": "^20.2.0",
+    "eslint": "^8.40.0",
+    "eslint-config-next": "^13.4.0"
+  }
+} 
