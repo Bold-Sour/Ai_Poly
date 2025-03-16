@@ -1,6 +1,7 @@
 # AI Polyglot System
 
 Bu proje, farklı programlama dillerinin güçlü yanlarını kullanarak kapsamlı bir yapay zeka sistemi oluşturmayı amaçlamaktadır. Sistem, aşağıdaki bileşenlerden oluşmaktadır:
+Proje İşbirlikçisi @Oussssn
 
 ## Bileşenler
 
